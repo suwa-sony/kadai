@@ -1,12 +1,120 @@
+  {{ 'slick.css' | asset_url | stylesheet_tag }}
+  {{ 'slick-theme.css' | asset_url | stylesheet_tag }}
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+  {{ 'slick.min.js' | asset_url | script_tag }}
+<style>
+.shopify-section.slider-top ul{
+  margin:0;
+    background: #fff;
+}
+.slick-initialized .slick-slide{
+  padding:0 8px;
+}
+.shopify-section.slider-top {
+    background: #000;
+    padding-top: 77px;
+    line-height: 0;
+}
+.slick-initialized .slick-slide{
+  margin: 0;
+}
+.slick-dots li button:before{
+  font-size:0;
+}
+.slick-slider .slick-dots li.slick-active, .slick-slider .slick-dots li.slick-active button, .slick-slider .slick-dots li.slick-active button:before{
+    width: 8px;
+    height: 8px;
+}
+.slick-slider .slick-dots li button:before{
+  background:#333;
+}
+@media (max-width: 768px){
+  body .site-header {
+    padding: 0;
+  }
+  body .site-header .page-width {
+    padding: 0 10px 0 15px;
+  }
+  body .site-header__logo {
+    margin: 9px 0 10px;
+  }
+  body .main-content {
+    padding-top: 0;
+  }
+  body .shopify-section.slider-top {
+    padding-top: 65px;
+    margin-bottom: 32px;
+  }
+  .slick-dots {
+    bottom: -15px;
+  }
+  .slick-initialized .slick-slide{
+  padding:0 3px;
+  }
+}
+</style>
+<script>
+$(function () {
+  $('.slider-main').slick({
+    autoplay: true,
+			dots: true,
+			centerMode: true,
+			arrows: true,
+			centerPadding: '10%',
+			slidesToShow: 1,
+			speed: 2000,
+  });
+});
+</script>
+
+  {% if section.blocks.size > 0 %}
+    <ul class="slider-main">
+      {% for block in section.blocks %}
+        <li>
+          {% if block.settings.link != blank %}<a href="{{ block.settings.link }}">{% endif %}
+          {% if block.settings.image != blank %}
+            {%- assign img_url = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+            <img src="{{ block.settings.image | img_url: '2000x' }}" alt="{{ block.settings.image.alt }}">
+          {% else %}
+            {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+          {% endif %}
+          {% if block.settings.link != blank %}</a>{% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
 {% schema %}
   {
-    "name": "Section name",
-    "settings": []
+    "name": "Slider Slick",
+    "class": "slider-top",
+    "max_blocks": 10,
+    "settings": [
+    ],
+    "blocks": [
+      {
+        "type": "image",
+        "name": "slider-img",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "url",
+            "id": "link",
+            "label": "Link"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Slider Slick",
+        "category": "Image",
+        "blocks": [
+        ]
+      }
+    ]
   }
 {% endschema %}
-
-{% stylesheet %}
-{% endstylesheet %}
-
-{% javascript %}
-{% endjavascript %}
