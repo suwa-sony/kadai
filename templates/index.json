@@ -1,5 +1,38 @@
 {
   "sections": {
+    "3fd5664d-34cb-4d6e-bb6c-bee9622d7c0f": {
+      "type": "slider-slick",
+      "blocks": {
+        "d20ab476-7217-4fe6-b1c1-97f37f4f287f": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/TOP_main_shita_230615_800x_0b1c0e06-f63f-4607-8a27-4aabb52ccbca.jpg",
+            "link": ""
+          }
+        },
+        "a350d590-ab5c-4be6-b214-9f6e9a7ab1ce": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/TOP_main_shita_230706_800x_f0b550d3-7721-4611-959d-f6b240241061.jpg",
+            "link": ""
+          }
+        },
+        "219e4ca8-5e49-4f0f-9aa0-cf1f8a9f5161": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/CONTENTS_craftcrafts_800x_0b74dde2-2793-440b-9bab-cd823db9c04a.jpg",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "d20ab476-7217-4fe6-b1c1-97f37f4f287f",
+        "a350d590-ab5c-4be6-b214-9f6e9a7ab1ce",
+        "219e4ca8-5e49-4f0f-9aa0-cf1f8a9f5161"
+      ],
+      "settings": {
+      }
+    },
     "image_banner": {
       "type": "image-banner",
       "blocks": {
@@ -69,6 +102,7 @@
     }
   },
   "order": [
+    "3fd5664d-34cb-4d6e-bb6c-bee9622d7c0f",
     "image_banner",
     "featured_collection"
   ]
